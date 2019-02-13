@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28AE2B7B-252A-46E6-819D-15980E407313}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Proxy102</RootNamespace>
+    <AssemblyName>Proxy102</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\proxy102_release\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>Microsoft\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors">
+      <HintPath>Microsoft\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>Microsoft\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>Microsoft\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>Microsoft\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Microsoft\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>Microsoft\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Microsoft\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>Microsoft\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fleck\ConnectionNotAvailableException.cs" />
+    <Compile Include="Fleck\FleckLog.cs" />
+    <Compile Include="Fleck\FrameType.cs" />
+    <Compile Include="Fleck\HandlerFactory.cs" />
+    <Compile Include="Fleck\Handlers\ComposableHandler.cs" />
+    <Compile Include="Fleck\Handlers\Draft76Handler.cs" />
+    <Compile Include="Fleck\Handlers\FlashSocketPolicyRequestHandler.cs" />
+    <Compile Include="Fleck\Handlers\Hybi13Handler.cs" />
+    <Compile Include="Fleck\Helpers\MonoHelper.cs" />
+    <Compile Include="Fleck\Interfaces\IHandler.cs" />
+    <Compile Include="Fleck\Interfaces\ISocket.cs" />
+    <Compile Include="Fleck\Interfaces\IWebSocketConnection.cs" />
+    <Compile Include="Fleck\Interfaces\IWebSocketConnectionInfo.cs" />
+    <Compile Include="Fleck\Interfaces\IWebSocketServer.cs" />
+    <Compile Include="Fleck\IntExtensions.cs" />
+    <Compile Include="Fleck\QueuedStream.cs" />
+    <Compile Include="Fleck\ReadState.cs" />
+    <Compile Include="Fleck\RequestParser.cs" />
+    <Compile Include="Fleck\SocketWrapper.cs" />
+    <Compile Include="Fleck\SubProtocolNegotiationFailureException.cs" />
+    <Compile Include="Fleck\SubProtocolNegotiator.cs" />
+    <Compile Include="Fleck\WebSocketConnection.cs" />
+    <Compile Include="Fleck\WebSocketConnectionInfo.cs" />
+    <Compile Include="Fleck\WebSocketException.cs" />
+    <Compile Include="Fleck\WebSocketHttpRequest.cs" />
+    <Compile Include="Fleck\WebSocketServer.cs" />
+    <Compile Include="Fleck\WebSocketStatusCodes.cs" />
+    <Compile Include="Microsoft.Owin.FileSystems\EmbeddedResourceFileSystem.cs" />
+    <Compile Include="Microsoft.Owin.FileSystems\IFileInfo.cs" />
+    <Compile Include="Microsoft.Owin.FileSystems\IFileSystem.cs" />
+    <Compile Include="Microsoft.Owin.FileSystems\PhysicalFileSystem.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\Constants.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\ContentTypes\FileExtensionContentTypeProvider.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\ContentTypes\IContentTypeProvider.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DefaultFilesExtensions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DefaultFilesMiddleware.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DefaultFilesOptions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DirectoryBrowserExtensions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DirectoryBrowserMiddleware.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DirectoryBrowserOptions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DirectoryFormatters\HtmlDirectoryFormatter.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\DirectoryFormatters\IDirectoryFormatter.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\FileServerExtensions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\FileServerOptions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\GlobalSuppressions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\Helpers.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\Infrastructure\RangeHelpers.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\Infrastructure\SharedOptions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\Infrastructure\SharedOptionsBase.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\SendFileExtensions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\SendFileMiddleware.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\SendFileResponseExtensions.cs" />
+    <Compile Include="StaticFileContext.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\StaticFileExtensions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\StaticFileMiddleware.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\StaticFileOptions.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\StaticFileResponseContext.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\StreamCopyOperation.cs" />
+    <Compile Include="Microsoft.Owin.StaticFiles\____Resources.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyWebServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\proxy102_release\proxy.js">
+      <Link>proxy.js</Link>
+    </Content>
+    <Content Include="Fleck\Fleck.csproj" />
+    <Content Include="path.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
